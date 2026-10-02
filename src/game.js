@@ -445,7 +445,7 @@ function updatePlayer(dt,now){
     speed -= Math.sign(speed)*Math.min(Math.abs(speed),6.5*dt);
   }
 
-  speed=clamp(speed,-reverseMax,maxSpeed*(offroad?.58:1));
+  speed=clamp(speed,-reverseMax,maxSpeed*(offroad ? .58 : 1));
 
   const steerInput=(keys.left?1:0)-(keys.right?1:0);
   steer=lerp(steer,steerInput,Math.min(1,dt*7));
