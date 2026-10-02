@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+  <meta name="theme-color" content="#071019" />
+  <title>Capivari Horizon</title>
+  <meta name="description" content="Capivari Horizon — corrida open world no navegador, inspirada em Capivari-SP." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main id="app">
+    <div id="gameMount" aria-label="Área 3D do Capivari Horizon"></div>
+
+    <section id="boot" class="overlay is-visible">
+      <div class="panel boot-card">
+        <div class="eyebrow">JORO GAMES • WEB EDITION</div>
+        <h1>CAPIVARI<br><span>HORIZON</span></h1>
+        <p id="bootText">Preparando Capivari...</p>
+        <div class="progress"><i id="bootBar"></i></div>
+      </div>
+    </section>
+
+    <section id="menu" class="overlay">
+      <div class="menu-shell">
+        <div class="brand-block">
+          <div class="eyebrow">OPEN WORLD • CAPIVARI-SP</div>
+          <h1>CAPIVARI<br><span>HORIZON</span></h1>
+          <p>Escolha um carro, atravesse os bairros e dispute o circuito da cidade.</p>
+        </div>
+        <div class="menu-actions">
+          <button id="raceBtn" class="primary">INICIAR CORRIDA <b>→</b></button>
+          <button id="freeBtn">PASSEIO LIVRE</button>
+          <button id="garageBtn">GARAGEM <span id="selectedCarLabel"></span></button>
+          <div class="control-hint"><b>PC</b> WASD / setas • Espaço: freio de mão • R: reposicionar</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="garage" class="overlay">
+      <div class="panel garage-panel">
+        <header class="panel-head">
+          <div>
+            <div class="eyebrow">20 VEÍCULOS</div>
+            <h2>Garagem Horizon</h2>
+          </div>
+          <button id="garageClose" class="icon-btn" aria-label="Fechar garagem">×</button>
+        </header>
+        <div id="garageGrid" class="garage-grid"></div>
+      </div>
+    </section>
+
+    <section id="hud" class="hud">
+      <div class="hud-left">
+        <div class="race-card">
+          <div id="modeLabel" class="eyebrow">CORRIDA</div>
+          <div class="race-row"><strong id="position">1/8</strong><span id="lap">VOLTA 1/2</span></div>
+          <div id="checkpoint">CHECKPOINT 1/12</div>
+        </div>
+        <div class="district-card">
+          <small>BAIRRO</small>
+          <strong id="district">Centro</strong>
+        </div>
+      </div>
+
+      <div class="hud-center">
+        <div id="countdown" class="countdown"></div>
+      </div>
+
+      <div class="hud-right">
+        <canvas id="minimap" width="220" height="220" aria-label="Minimapa"></canvas>
+        <div class="speed">
+          <strong id="speedValue">0</strong>
+          <span>KM/H</span>
+          <i id="gearValue">N</i>
+        </div>
+      </div>
+
+      <button id="pauseBtn" class="pause-btn" aria-label="Pausar">Ⅱ</button>
+    </section>
+
+    <section id="pause" class="overlay">
+      <div class="panel small-panel">
+        <div class="eyebrow">PAUSADO</div>
+        <h2>Capivari espera.</h2>
+        <button id="resumeBtn" class="primary">CONTINUAR</button>
+        <button id="restartBtn">REINICIAR</button>
+        <button id="menuBtn">VOLTAR AO MENU</button>
+      </div>
+    </section>
+
+    <section id="finish" class="overlay">
+      <div class="panel finish-panel">
+        <div class="eyebrow">RESULTADO</div>
+        <div id="trophy" class="trophy">🏆</div>
+        <h2 id="finishTitle">PÓDIO!</h2>
+        <p id="finishText"></p>
+        <div id="podium" class="podium"></div>
+        <button id="againBtn" class="primary">CORRER NOVAMENTE</button>
+        <button id="finishMenuBtn">MENU PRINCIPAL</button>
+      </div>
+    </section>
+
+    <div id="toast" role="status" aria-live="polite"></div>
+
+    <div id="touch" aria-label="Controles de toque">
+      <div class="touch-steer">
+        <button data-control="left" aria-label="Virar à esquerda">◀</button>
+        <button data-control="right" aria-label="Virar à direita">▶</button>
+      </div>
+      <div class="touch-pedals">
+        <button data-control="brake" class="brake" aria-label="Frear">FREIO</button>
+        <button data-control="gas" class="gas" aria-label="Acelerar">ACELERAR</button>
+      </div>
+    </div>
+
+    <div id="fatal" class="fatal" hidden>
+      <h2>Não foi possível iniciar o jogo.</h2>
+      <p id="fatalMessage">Verifique se o navegador possui WebGL habilitado.</p>
+    </div>
+  </main>
+
+  <script type="module" src="./src/game.js"></script>
+</body>
+</html>
