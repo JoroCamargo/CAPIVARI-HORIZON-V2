@@ -1,0 +1,10 @@
+{
+  "name":"capivari-horizon-v2",
+  "version":"0.2.0",
+  "private":true,
+  "type":"module",
+  "scripts":{
+    "serve":"npx serve .",
+    "check":"node --check src/game.js"
+  }
+}
