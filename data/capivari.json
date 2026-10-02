@@ -1,0 +1,17 @@
+{
+  "name":"Capivari Horizon",
+  "city":"Capivari",
+  "state":"SP",
+  "country":"Brasil",
+  "worldScale":"procedural-prototype",
+  "districts":[
+    {"name":"Centro","x":0,"z":0},
+    {"name":"Moreto","x":-420,"z":-180},
+    {"name":"Jardim Elisa","x":350,"z":-250},
+    {"name":"Morada do Sol","x":420,"z":260},
+    {"name":"São João","x":-310,"z":300},
+    {"name":"Flamboyant","x":110,"z":430}
+  ],
+  "race":{"laps":2,"opponents":7,"checkpoints":12},
+  "notes":"Geometria atual é uma interpretação procedural para gameplay. A arquitetura permite substituir ruas e bairros por GeoJSON/OSM/DEM em versões futuras."
+}
